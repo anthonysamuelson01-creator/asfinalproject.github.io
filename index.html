@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | My travel stories</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chicle&family=Quicksand:wght@300..700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <h1>My travel stories</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="southeastasia.html">Southeast Asia</a></li>
+                <li><a href="australasia.html">Australasia</a></li>
+                <li><a href="europe.html">Mediterranean Europe</a></li>
+                <li><a href="indianocean.html">The Indian Ocean</a></li>
+                <li><a href="usa.html">The USA</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="homepage">
+        <div class="homepage1">
+            <p>Hi there! You just got yourself into a traveler blog, and you are welcome in here!<br />
+                I had the incredible chance to visit a small portion of each of the five continents our world is made
+                of.<br />
+                You will find a glimpse of travel moments that stood out to me.<br />
+                <span id="hideFromTablet">The website content details are summarized in the table below.</span>
+            </p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Web page to consult</th>
+                        <th>Country</th>
+                        <th>Place description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Southeast Asia</td>
+                        <td>Thailand</td>
+                        <td>The Twin Pagodas in Chiang Mai region</td>
+                    </tr>
+                    <tr>
+                        <td>Southeast Asia</td>
+                        <td>Indonesia</td>
+                        <td>Ubud rice fields in Bali</td>
+                    </tr>
+                    <tr>
+                        <td>Australasia</td>
+                        <td>Australia</td>
+                        <td>Whiteheaven beach in the Whitsundays</td>
+                    </tr>
+                    <tr>
+                        <td>Australasia</td>
+                        <td>New Zealand</td>
+                        <td>Milford Sound in the South Island</td>
+                    </tr>
+                    <tr>
+                        <td>Mediterranean Europe</td>
+                        <td>Greece</td>
+                        <td>The Delphi ancient site</td>
+                    </tr>
+                    <tr>
+                        <td>Mediterranean Europe</td>
+                        <td>Spain</td>
+                        <td>The house of Dali in Cadaques town</td>
+                    </tr>
+                    <tr>
+                        <td>The Indian Ocean</td>
+                        <td>La Réunion Island (France)</td>
+                        <td>The Grand Bénare summit</td>
+                    </tr>
+                    <tr>
+                        <td>The Indian Ocean</td>
+                        <td>Mauritius</td>
+                        <td>Grand Baie town</td>
+                    </tr>
+                    <tr>
+                        <td>The USA</td>
+                        <td>The USA</td>
+                        <td>Bryant Park in Manhattan NYC</td>
+                    </tr>
+                    <tr>
+                        <td>The USA</td>
+                        <td>The USA</td>
+                        <td>San Diego old town</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="homepage2">
+            <h3>Contact us</h3>
+            <p>Feel free to fill in the form should you want to stay in touch and share about your travels!</p>
+            <form class="needs-validation" novalidate id="toReset">
+                <div class="mb-3">
+                    <label for="firstName" class="form-label">First Name :</label>
+                    <input type="text" class="form-control" name="firstName" id="firstName" maxlength="80" required>
+                    <div class="valid-feedback">Looks good!</div>
+                    <div class="invalid-feedback">Please enter your first name (max 80 characters).</div>
+                </div>
+                <div class="mb-3">
+                    <label for="lastName" class="form-label">Last Name :</label>
+                    <input type="text" class="form-control" name="lastName" id="lastName" maxlength="80" required>
+                    <div class="valid-feedback">Looks good!</div>
+                    <div class="invalid-feedback">Please enter your last name (max 80 characters).</div>
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email :</label>
+                    <input type="email" class="form-control" name="email" id="email" maxlength="80" required>
+                    <div class="valid-feedback">Looks good!</div>
+                    <div class="invalid-feedback">Please enter a valid email (max 80 characters).</div>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2026, Spring Semester, Penn State World Campus, IST250 course</p>
+    </footer>
+    <script>
+        /*
+        --Starting with the Bootstrap website JavaScript template for custom forms : 
+        https://getbootstrap.com/docs/5.3/forms/validation/
+        --Adding the case when the user enters the correct data and submits the form :
+          1-Keeping the preventDefault and stopPropagation
+          2-Adding an alert window to inform the user the form is sent
+          3-Removing the validation information ("was-validated" Bootstrap class) after form is sent
+          4-Resetting user information to blank after the form is sent
+        */
+        (function () {
+            'use strict';
+            window.addEventListener('load', function () {
+                var forms = document.getElementsByClassName('needs-validation');
+                var validation = Array.prototype.filter.call(forms, function (form) {
+                    form.addEventListener('submit', function (event) {
+                        if (form.checkValidity() === false) {
+                            event.preventDefault();
+                            event.stopPropagation();
+                            form.classList.add('was-validated');
+                        }
+                        else {
+                            event.preventDefault();
+                            event.stopPropagation();
+                            alert("Thanks for providing your contact details!\nWe'll be in touch soon!");
+                            form.classList.remove('was-validated');
+                            document.getElementById("toReset").reset();
+                        }
+                    }, false);
+                });
+            }, false);
+        })();</script>
+</body>
+
+</html>
